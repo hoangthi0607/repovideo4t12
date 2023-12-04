@@ -3,6 +3,7 @@ import { addVideo, deleteVideo, getVideo, updateVideo, addView, trend, random, s
 import { verifyToken } from "../verifyToken.js"
 const router = express.Router()
 
+
 router.post("/", verifyToken,addVideo)
 router.put("/:id", verifyToken,updateVideo)
 router.delete("/:id", verifyToken,deleteVideo)
@@ -13,5 +14,8 @@ router.get("/random",random)
 router.get("/sub",verifyToken,sub)
 router.get("/tags",verifyToken,getByTag)
 router.get("/search",verifyToken,search)
-
+router.use((req, res, next) => {
+    console.log(`In router: ${req.method}:${req.originalUrl}`);
+    next();
+});//xoa
 export default router
