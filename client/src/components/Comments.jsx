@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
-import React from "react";
-import styled from "styled-components";
 import Comment from "./Comment";
 
 const Container = styled.div``;
